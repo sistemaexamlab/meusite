@@ -547,56 +547,49 @@ sistemaexamlab@gmail.com</a>
 
             
 
-            <form action="cgi-sys/FormMail.cgi" method="post" name="regform" id="regform" class="p-5 bg-white">
+            <form action="/cgi-sys/FormMail.cgi" method="post" name="regform" id="regform" class="p-5 bg-white">
       <input type="hidden" name="recipient" value="sistemaexamlab@gmail.com">
       <input type="hidden" name="redirect" value="index.html" />
-      <input type="hidden" name="email" value="sistemaexamlab@gmail.com">
+      <input type="hidden" name="subject" value="Novo Contato do Site"> <h2 class="h4 text-black mb-5">Formulário de Contato</h2> 
 
-              
-              <h2 class="h4 text-black mb-5">Formulário de Contato</h2> 
+      <div class="row form-group">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <label class="text-black" for="fname">Nome Completo:</label>
+          <input type="text" id="fname" name="realname" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="text-black" for="lname">Telefone:</label>
+          <input type="text" id="phone" name="telefone" class="form-control">
+        </div>
+      </div>
 
-              <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Nome Completo:</label>
-                  <input type="text" id="fname" class="form-control">
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="lname">Telefone:</label>
-                  <input type="text" id="lname" class="form-control">
-                </div>
-              </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label class="text-black" for="email">E-mail:</label> 
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+      </div>
 
-              <div class="row form-group">
-                
-                <div class="col-md-12">
-                  <label class="text-black" for="email">E-mail:</label> 
-                  <input type="email" id="email" class="form-control">
-                </div>
-              </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label class="text-black" for="subject">Assunto:</label> 
+          <input type="text" id="subject" name="assunto_cliente" class="form-control">
+        </div>
+      </div>
 
-              <div class="row form-group">
-                
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Assunto:</label> 
-                  <input type="subject" id="subject" class="form-control">
-                </div>
-              </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label class="text-black" for="message">Mensagem:</label> 
+          <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Escreva suas anotações ou perguntas aqui..." required></textarea>
+        </div>
+      </div>
 
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Mensagem:</label> 
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Escreva suas anotações ou perguntas aqui..."></textarea>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Enviar mensagem" class="btn btn-primary btn-md text-white">
-                </div>
-              </div>
-
-  
-            </form>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <input type="submit" value="Enviar mensagem" class="btn btn-primary btn-md text-white">
+        </div>
+      </div>
+</form>
           </div>
           
         </div>
@@ -686,4 +679,5 @@ sistemaexamlab@gmail.com</a>
   
   </body>
 </html>
+
 
