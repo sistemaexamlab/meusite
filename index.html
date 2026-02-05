@@ -634,14 +634,19 @@ sistemaexamlab@gmail.com</a>
           </div>
           <div class="col-md-3">
             <h2 class="footer-heading mb-4">Assine o Newsletter</h2>
-            <form action="cgi-sys/FormMail.cgi" method="post" class="footer-subscribe">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Digite o Email" aria-label="Digite o Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-black" type="button" id="button-addon2">Enviar</button>
-                </div>
-              </div>
-            </form>
+            
+			  <form action="https://formspree.io/f/sistemaexamlab@gmail.com" method="POST" class="footer-subscribe">
+  <div class="input-group mb-3">
+    <input type="email" name="email" class="form-control border-secondary text-white bg-transparent" placeholder="Digite o Email" aria-label="Digite o Email" aria-describedby="button-addon2" required>
+    
+    <div class="input-group-append">
+      <button class="btn btn-primary text-black" type="submit" id="button-addon2">Enviar</button>
+    </div>
+  </div>
+
+  <input type="hidden" name="_next" value="https://sistemaexamlab.github.io/meusite/obrigado.html">
+</form>
+			  
           </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
@@ -680,6 +685,7 @@ sistemaexamlab@gmail.com</a>
   
   </body>
 </html>
+
 
 
 
