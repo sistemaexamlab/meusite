@@ -545,23 +545,53 @@ sistemaexamlab@gmail.com</a>
         <div class="row">
           <div class="col-md-12 mb-5">
 
-			  <!-- modify this form HTML and place wherever you want your form -->
 <form
   action="https://formspree.io/f/mkovwpgj"
   method="POST"
 >
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-            
+      
+      <h2 class="h4 text-black mb-5">Formulário de Contato</h2> 
+
+      <div class="row form-group">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <label class="text-black" for="fname">Nome Completo:</label>
+          <input type="text" id="fname" name="nome" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="text-black" for="lname">Telefone:</label>
+          <input type="text" id="lname" name="telefone" class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label class="text-black" for="email">Seu E-mail:</label> 
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label class="text-black" for="subject">Assunto:</label> 
+          <input type="text" id="subject" name="assunto" class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label class="text-black" for="message">Mensagem:</label> 
+          <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Escreva suas anotações ou perguntas aqui..." required></textarea>
+        </div>
+      </div>
+
+      <input type="hidden" name="_next" value="https://sistemaexamlab.github.io/meusite/obrigado.html">
+
+      <div class="row form-group">
+        <div class="col-md-12">
+          <input type="submit" value="Enviar mensagem" class="btn btn-primary btn-md text-white">
+        </div>
+      </div>
+</form>            
           </div>
           
         </div>
@@ -656,6 +686,7 @@ sistemaexamlab@gmail.com</a>
   
   </body>
 </html>
+
 
 
 
