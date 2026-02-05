@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
@@ -17,15 +18,17 @@
         --primary: #0061f2;
         --secondary: #6900d1;
         --text-dark: #2c3e50;
+        --bg-light: #f8fbff;
       }
 
-      body { font-family: 'Inter', sans-serif; color: var(--text-dark); }
+      body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: #fff; }
       h1, h2, h3 { font-family: 'Quicksand', sans-serif; font-weight: 700; }
 
-      /* Navbar */
+      /* Navbar Moderna */
       .site-navbar {
         background: rgba(255, 255, 255, 0.95) !important;
         backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
         padding: 15px 0 !important;
       }
 
@@ -38,26 +41,35 @@
         clip-path: ellipse(150% 100% at 50% 0%);
       }
 
-      .btn-modern { border-radius: 50px; padding: 15px 35px; font-weight: 700; transition: 0.3s; text-transform: uppercase; }
-      .btn-grad { background: linear-gradient(to right, #00c6ff, #0072ff); color: white; border: none; }
-      .btn-grad:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,114,255,0.3); color: white; }
+      .btn-modern { border-radius: 50px; padding: 15px 35px; font-weight: 700; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+      .btn-grad { background: linear-gradient(to right, #00c6ff, #0072ff); color: white; border: none; box-shadow: 0 10px 20px rgba(0,114,255,0.2); }
+      .btn-grad:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,114,255,0.3); color: white; }
 
-      /* Seção de Telas (O que você pediu) */
-      .screenshot-item {
-        border-radius: 15px;
+      /* Ajustes na Galeria de Imagens */
+      .item-wrap {
+        position: relative;
+        display: block;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         transition: 0.3s;
-        margin-bottom: 30px;
-        border: 1px solid #eee;
-        background: #fff;
       }
-      .screenshot-item:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-      .screenshot-item img { width: 100%; display: block; }
-      .screenshot-caption { padding: 15px; text-align: center; font-weight: 600; font-size: 0.9rem; color: #555; }
+      .item-wrap:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+      .item-wrap .icon-search2 {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px; color: #fff;
+        opacity: 0; transition: 0.3s; z-index: 2;
+      }
+      .item-wrap:after {
+        content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 97, 242, 0.6); opacity: 0; transition: 0.3s;
+      }
+      .item-wrap:hover:after, .item-wrap:hover .icon-search2 { opacity: 1; }
 
-      /* Contact Card */
-      .contact-card { background: #fff; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.12); overflow: hidden; }
+      /* Card de Contato */
+      .contact-card { background: #fff; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.12); overflow: hidden; border: none; }
       .contact-info-panel { background: var(--primary); color: white; padding: 50px; }
       .form-panel { padding: 50px; }
       .form-control-modern { background: #f4f7f9; border: 2px solid transparent; border-radius: 12px; padding: 15px 20px; height: auto; }
@@ -68,19 +80,19 @@
 
   <div class="site-wrap">
 
-    <header class="site-navbar js-sticky-header site-navbar-target">
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Exam<span style="color:var(--primary)">Lab</span></a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block text-right">
-            <nav class="site-navigation">
+            <nav class="site-navigation" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto">
                 <li><a href="#home-section" class="nav-link">Início</a></li>
-                <li><a href="#screens-section" class="nav-link">Telas do Sistema</a></li>
+                <li><a href="#gallery-section" class="nav-link">Telas e Laudos</a></li>
                 <li><a href="#features-section" class="nav-link">Diferenciais</a></li>
-                <li><a href="#contact-section" class="btn btn-primary btn-modern btn-sm text-white ml-3">Falar com Consultor</a></li>
+                <li><a href="#contact-section" class="btn btn-primary btn-modern btn-sm text-white ml-3">Teste Grátis</a></li>
               </ul>
             </nav>
           </div>
@@ -93,39 +105,10 @@
         <div class="row justify-content-center">
           <div class="col-md-9" data-aos="fade-up">
             <h1 class="display-4 mb-4">Sua clínica com gestão inteligente e segura.</h1>
-            <p class="lead mb-5">O ExamLab é a ferramenta definitiva para patologistas que buscam agilidade extrema e precisão em laudos desde 1999.</p>
-            <a href="#contact-section" class="btn btn-modern btn-grad px-5">Agendar Demonstração</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="site-section bg-light" id="screens-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-md-7 text-center" data-aos="fade-up">
-            <h2 class="section-title mb-3">O Sistema por Dentro</h2>
-            <p class="text-muted">Interface intuitiva e rápida, projetada para o fluxo real de um laboratório.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <a href="images/tela1.jpg" class="screenshot-item d-block" data-fancybox="gallery">
-              <img src="images/tela1.jpg" alt="Tela Principal ExamLab">
-              <div class="screenshot-caption">Menu Principal e Dashboard</div>
-            </a>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <a href="images/tela2.jpg" class="screenshot-item d-block" data-fancybox="gallery">
-              <img src="images/tela2.jpg" alt="Cadastro de Exames">
-              <div class="screenshot-caption">Cadastro Ágil de Requisições</div>
-            </a>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <a href="images/tela3.jpg" class="screenshot-item d-block" data-fancybox="gallery">
-              <img src="images/tela3.jpg" alt="Laudo Final">
-              <div class="screenshot-caption">Impressão de Laudos Personalizados</div>
-            </a>
+            <p class="lead mb-5">O ExamLab é a ferramenta definitiva para laboratórios que buscam agilidade extrema e precisão em laudos desde 1999.</p>
+            <div class="d-flex justify-content-center">
+              <a href="#contact-section" class="btn btn-modern btn-grad px-5 mr-3">Solicitar Demonstração</a>
+            </div>
           </div>
         </div>
       </div>
@@ -135,31 +118,127 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5" data-aos="fade-right">
-            <div class="circle-bg">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/TDDKXCL4qkM" frameborder="0" allowfullscreen style="border-radius:20px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);"></iframe>
+            <div class="video-container shadow-lg" style="border-radius: 20px; overflow: hidden;">
+              <iframe width="100%" height="350" src="https://www.youtube.com/embed/TDDKXCL4qkM" frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
           <div class="col-lg-5 ml-auto" data-aos="fade-left">
-            <h2 class="mb-4">Por que o ExamLab se destaca?</h2>
+            <h2 class="section-title mb-4">Eficiência que você sente na rotina</h2>
             <ul class="list-unstyled ul-check success">
               <li class="mb-3">Até 3 médicos solicitantes por requisição</li>
-              <li class="mb-3">Histórico completo por identificação única</li>
-              <li class="mb-3">Cálculos automáticos via fórmulas</li>
-              <li class="mb-3">Resultados críticos em destaque (Vermelho)</li>
-              <li class="mb-3">Suporte Premium e treinamento inclusos</li>
+              <li class="mb-3">Histórico completo (Identificação Única)</li>
+              <li class="mb-3">Cálculos automáticos e fórmulas personalizadas</li>
+              <li class="mb-3">Resultados críticos destacados em vermelho</li>
+              <li class="mb-3">Suporte Premium incluso na mensalidade</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="site-section bg-light" id="contact-section">
+    <section class="site-section bg-light" id="gallery-section" data-aos="fade">
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Algumas Telas</h2>
+          </div>
+        </div>
+
+        <div id="posts" class="row no-gutter">
+          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/image-1.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/image-1.jpg">
+            </a>
+          </div>
+          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/image-2.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/image-2.jpg">
+            </a>
+          </div>
+          <div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/image-3.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/image-3.jpg">
+            </a>
+          </div>
+          <div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/image-4.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/image-4.jpg">
+            </a>
+          </div>
+          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/image-5.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/image-5.jpg">
+            </a>
+          </div>
+          <div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/image-6.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/image-6.jpg">
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="row mb-3 mt-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Veja Alguns Modelos de Laudos</h2>
+          </div>
+        </div>
+
+        <div id="posts" class="row no-gutter">
+          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/modelo_laudos/01.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/modelo_laudos/01.jpg">
+            </a>
+          </div>
+          <div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/modelo_laudos/02.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/modelo_laudos/02.jpg">
+            </a>
+          </div>
+          <div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/modelo_laudos/03.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/modelo_laudos/03.jpg">
+            </a>
+          </div>
+          <div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/modelo_laudos/04.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/modelo_laudos/04.jpg">
+            </a>
+          </div>
+          <div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/modelo_laudos/05.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/modelo_laudos/05.jpg">
+            </a>
+          </div>
+          <div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+            <a href="images/modelo_laudos/06.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
+              <span class="icon-search2"></span>
+              <img class="img-fluid" src="images/modelo_laudos/06.jpg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="contact-section">
       <div class="container">
         <div class="contact-card row no-gutters">
           <div class="col-lg-5 contact-info-panel d-flex flex-column justify-content-center">
-            <h2>Vamos conversar?</h2>
-            <p>Descubra como podemos simplificar sua rotina laboratorial ainda hoje.</p>
-            <p class="font-weight-bold"><span class="icon-whatsapp mr-2"></span> (35) 99866-8617</p>
+            <h2 class="text-white mb-4">Pronto para evoluir?</h2>
+            <p>Fale conosco e veja como o ExamLab se adapta perfeitamente ao seu laboratório.</p>
+            <p><span class="icon-whatsapp mr-2"></span> (35) 99866-8617</p>
           </div>
           <div class="col-lg-7 form-panel">
             <form action="https://formspree.io/f/mkovwpgj" method="POST">
@@ -168,10 +247,10 @@
                 <input type="text" name="name" class="form-control-modern w-100" placeholder="Seu Nome" required>
               </div>
               <div class="form-group mb-3">
-                <input type="email" name="email" class="form-control-modern w-100" placeholder="Seu melhor e-mail" required>
+                <input type="email" name="email" class="form-control-modern w-100" placeholder="E-mail" required>
               </div>
               <div class="form-group mb-4">
-                <textarea name="message" class="form-control-modern w-100" rows="4" placeholder="Sua dúvida ou necessidade..." required></textarea>
+                <textarea name="message" class="form-control-modern w-100" rows="4" placeholder="Sua mensagem..." required></textarea>
               </div>
               <button type="submit" class="btn btn-modern btn-grad btn-block text-white">Enviar Mensagem</button>
             </form>
@@ -181,9 +260,7 @@
     </section>
 
     <footer class="py-5 bg-dark text-white text-center">
-      <div class="container">
-        <p class="mb-0 small">© 2026 ExamLab. Eficiência técnica para Análises Clínicas.</p>
-      </div>
+      <p class="mb-0 small">© 2026 ExamLab. Tecnologia para Análises Clínicas.</p>
     </footer>
 
   </div>
