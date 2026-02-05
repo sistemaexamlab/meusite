@@ -545,44 +545,43 @@ sistemaexamlab@gmail.com</a>
         <div class="row">
           <div class="col-md-12 mb-5">
 
-            
-
-            <form action="/cgi-sys/FormMail.cgi" method="post" name="regform" id="regform" class="p-5 bg-white">
-      <input type="hidden" name="recipient" value="sistemaexamlab@gmail.com">
-      <input type="hidden" name="redirect" value="index.html" />
-      <input type="hidden" name="subject" value="Novo Contato do Site"> <h2 class="h4 text-black mb-5">Formulário de Contato</h2> 
+            <form action="https://formspree.io/f/sistemaexamlab@gmail.com" method="POST" name="regform" id="regform" class="p-5 bg-white">
+      
+      <h2 class="h4 text-black mb-5">Formulário de Contato</h2> 
 
       <div class="row form-group">
         <div class="col-md-6 mb-3 mb-md-0">
           <label class="text-black" for="fname">Nome Completo:</label>
-          <input type="text" id="fname" name="realname" class="form-control" required>
+          <input type="text" id="fname" name="nome" class="form-control" required>
         </div>
         <div class="col-md-6">
-          <label class="text-black" for="lname">Telefone:</label>
+          <label class="text-black" for="phone">Telefone:</label>
           <input type="text" id="phone" name="telefone" class="form-control">
         </div>
       </div>
 
       <div class="row form-group">
         <div class="col-md-12">
-          <label class="text-black" for="email">E-mail:</label> 
-          <input type="email" id="email" name="email" class="form-control" required>
+          <label class="text-black" for="email">Seu E-mail:</label> 
+          <input type="email" id="email" name="_replyto" class="form-control" required>
         </div>
       </div>
 
       <div class="row form-group">
         <div class="col-md-12">
           <label class="text-black" for="subject">Assunto:</label> 
-          <input type="text" id="subject" name="assunto_cliente" class="form-control">
+          <input type="text" id="subject" name="assunto" class="form-control">
         </div>
       </div>
 
       <div class="row form-group">
         <div class="col-md-12">
           <label class="text-black" for="message">Mensagem:</label> 
-          <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Escreva suas anotações ou perguntas aqui..." required></textarea>
+          <textarea name="mensagem" id="message" cols="30" rows="7" class="form-control" placeholder="Escreva suas anotações ou perguntas aqui..." required></textarea>
         </div>
       </div>
+
+      <input type="hidden" name="_next" value="https://sistemaexamlab.github.io/meusite/index.html">
 
       <div class="row form-group">
         <div class="col-md-12">
@@ -590,6 +589,8 @@ sistemaexamlab@gmail.com</a>
         </div>
       </div>
 </form>
+
+            
           </div>
           
         </div>
@@ -679,5 +680,6 @@ sistemaexamlab@gmail.com</a>
   
   </body>
 </html>
+
 
 
